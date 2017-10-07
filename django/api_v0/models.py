@@ -8,7 +8,7 @@ class City(models.Model):
 
 
 class Hotel(models.Model):
-    city = models.ForeignKey(City, on_delete=models.SET_NULL)
+    city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True)
     stars = models.IntegerField(default='0')
     price = models.IntegerField(default='0')
 
