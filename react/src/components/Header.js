@@ -8,11 +8,10 @@ export default class Header extends Component {
 			<div>
 				<div className="ui clearing segment header-segment">
 				  <div className="choosemytrip-button-wrapper">
-				  		<button className="ui center green basic button choosemytrip-button black">Choose my trip</button>
+				  		<button className="ui center green basic button choosemytrip-button black" onClick={this.startTrip}>Start your trip</button>
 				  </div>
 				  
 				</div>
-				<button type="button" onClick={this.startTrip}>Start your trip</button>
 			</div>
 		)
 	}

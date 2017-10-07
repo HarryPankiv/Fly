@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import Trips from './components/trips';
+import Trips from './components/Trips';
 import InputComponent from './components/InputComponent';
 
 export default class App extends Component {

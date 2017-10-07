@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './InputComponent.css';
 
 export default class InputComponent extends Component {
 	constructor() {
@@ -11,19 +12,32 @@ export default class InputComponent extends Component {
 	render() {
 		return (
 			<div>
-				<form>
-					<input type="text" name="money" ref="money" />
-					<input type="text" name="tags" ref="tags" />
-					<input type="button" onClick={this.addTag.bind(this)} value="add tag"/>
+				<form className="">
+					<div className="ui input moneyInput">
+						<input className="" type="text" name="money" ref="money" />
+					</div>
+					<div className="tagInput ui right labeled left icon input">
+						<i className="tags icon"></i>
+						<input className="" type="text" name="tags" ref="tags" />
+						<a className="ui tag label" onClick={this.addTag.bind(this)} value="add tag">add tag</a>
+					</div>
 				</form>
-				<input type="submit" onClick={this.sendRequest.bind(this)} value="Submit" />
 				<ul>
 					{this.state.tags.map( (tag, i) => {
-						return <li key={i}>{tag}</li>
+						return <li key={i}>
+							{tag}
+							<input type="button" value="X" onClick={ () => this.deleteTag(i)} />
+						</li>
 					})}
 				</ul>
+				<input className="ui button" type="submit" onClick={this.sendRequest.bind(this)} value="Submit" />
 			</div>
 		)
+	}
+
+	deleteTag(i) {
+		this.state.tags.splice(i, 1);
+		this.setState({tags: this.state.tags});
 	}
 
 	addTag() {
