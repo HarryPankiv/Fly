@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../css/style.css';
+import './style.css';
 
 export default class Header extends Component {
 	render() {
 		return (
 			<div>
-				<div className="ui clearing segment header-segment">
+				<div className="ui inverted clearing segment header-segment inverted">
 				  <div className="choosemytrip-button-wrapper">
-				  		<button className="ui center green basic button choosemytrip-button black">Choose my trip</button>
+				  		<a href="#start" className="ui inverted button choosemytrip-button" onClick={this.startTrip.bind(this)}>Start my trip</a>
 				  </div>
 				  
 				</div>
-				<button type="button" onClick={this.startTrip}>Start your trip</button>
 			</div>
 		)
 	}

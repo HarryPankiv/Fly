@@ -1,0 +1,16 @@
+.header-segment{
+	background-image: url('../../assets/road-trip.jpg') !important;
+	
+	height: 70vh !important;
+	background-size: cover !important;
+	background-position: center !important;
+}
+
+.choosemytrip-button-wrapper{
+  	margin-top: 30vh;
+  	text-align: center;
+}
+
+.choosemytrip-button {
+	font-size: 40px !important;
+}
