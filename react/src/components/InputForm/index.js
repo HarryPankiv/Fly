@@ -12,7 +12,7 @@ export default class InputComponent extends Component {
 	}
 	render() {
 		return (
-			<div>
+			<div id={'start'}>
 				<div className="center input-component">
 					<br/><br/>
 					<h1 className="ui header input-header">Experience all your desires</h1>

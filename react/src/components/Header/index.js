@@ -8,7 +8,7 @@ export default class Header extends Component {
 			<div>
 				<div className="ui inverted clearing segment header-segment inverted">
 				  <div className="choosemytrip-button-wrapper">
-				  		<button className="ui inverted button choosemytrip-button" onClick={this.startTrip.bind(this)}>Choose my trip</button>
+				  		<a href="#start" className="ui inverted button choosemytrip-button" onClick={this.startTrip.bind(this)}>Start my trip</a>
 				  </div>
 				  
 				</div>
