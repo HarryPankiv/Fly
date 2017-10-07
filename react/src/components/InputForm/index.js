@@ -26,11 +26,18 @@ export default class InputForm extends Component {
 							<input id="tag-input" type="text" name="tags" ref="tags" placeholder="enter tags"/>
 							<a className="ui tag label" onClick={this.addTag.bind(this)} value="add tag">add tag</a>
 						</div>
-						<div>
-							<input type="number" ref="visitorCount" placeholder="number of visitors"/>
+
+						<div className="peopleInput ui labeled input">
+						    <div className="ui label">
+    							People
+  						    </div>
+							<input value="1" type="number" ref="visitorCount" placeholder="number of visitors"/>
 						</div>
-						<div>
-							<input type="number" ref="nightsCount" placeholder="how many nights you can spent?"/>
+						<div className="nightsInput ui labeled input">
+							<div className="ui label">
+    							Nights
+  						    </div>
+							<input value="1" type="number" ref="nightsCount" placeholder="how many nights you can spent?"/>
 						</div>
 					</form>
 					<div>
