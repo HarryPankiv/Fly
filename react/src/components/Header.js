@@ -12,7 +12,7 @@ export default class Header extends Component {
 	}
 
 	startTrip(ev) {
-	    axios.get('http://127.0.0.1:8000/api/v0/')
+	    axios.post('http://127.0.0.1:8000/api/v0/', {fuck: 'fuck you'})
 	    .then(res => {
             console.log(res);
 	    }).then(response => {
