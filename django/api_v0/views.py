@@ -4,7 +4,9 @@ from django.conf import settings
 
 import os
 
-class ReactAppView(View):
+class Test(View):
     def get(self, request):
-        return JsonResponse({"fuck": "fuck you"})
+        return JsonResponse({'request-type': 'GET'})
 
+    def post(self, request):
+        return JsonResponse({'data_from_frontend': request})
