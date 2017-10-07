@@ -3,7 +3,7 @@ import axios from 'axios';
 import './style.css';
 import Tag from '../Tag/index.js'
 
-export default class InputComponent extends Component {
+export default class InputForm extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -17,11 +17,11 @@ export default class InputComponent extends Component {
 				<h1 className="ui header input-header">Experience all your desires</h1>
 				<form>
 					<div className="ui right labeled input moneyInput">
-						<label for="amount" className="ui label">$</label>
+						<label htmlFor="amount" className="ui label">$</label>
 						<input className="" type="text" name="money" ref="money" placeholder="how rich are you?" />
 					</div>
 					<div className="tagInput ui right labeled left icon input">
-						<i class="tags icon"></i>
+						<i className="tags icon"></i>
 						<input id="tag-input" type="text" name="tags" ref="tags" placeholder="enter tags"/>
 						<a className="ui tag label" onClick={this.addTag.bind(this)} value="add tag">add tag</a>
 					</div>
