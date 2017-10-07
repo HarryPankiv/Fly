@@ -3,6 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import Layout from './pages/Layout';
+import Home from './pages/Home';
+// import  from './pages/';
+// import ErrorPage from './pages/ErrorPage';
+
+ReactDOM.render(
+	// <App />
+	<Router>
+		<div>
+	      	<Route path="/" component={Layout}/>
+	  		<Route path="/home" component={Home}/>
+  		</div>
+  </Router>
+	, document.getElementById('root'));
 registerServiceWorker();
+	
