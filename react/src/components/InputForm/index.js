@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './InputComponent.css';
+import './style.css';
 
 export default class InputComponent extends Component {
 	constructor() {

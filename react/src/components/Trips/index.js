@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../css/trips.css';
-import Trip from './Trip.js';
+import './style.css';
+import Trip from '../TripSingle/index';
 
 export default class Trips extends Component {
 	render() {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../css/trip.css';
-import Directions from './Directions.js';
+import './style.css';
+import Directions from '../Directions/index';
 
-export default class Trip extends Component {
+export default class TripSingle extends Component {
 	render() {
 		let place = 'Vienna';
 		let totalPrice = '$10000';

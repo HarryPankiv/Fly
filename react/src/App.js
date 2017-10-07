@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Header from './components/Header';
-import Trips from './components/Trips';
-import InputComponent from './components/InputComponent';
+import Header from './components/Header/index';
+import Trips from './components/Trips/index';
+import InputComponent from './components/InputForm/index';
 
 export default class App extends Component {
     render() {
