@@ -3,7 +3,7 @@ import axios from 'axios';
 import './style.css';
 import Tag from '../Tag/index.js'
 
-export default class InputComponent extends Component {
+export default class InputForm extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -25,6 +25,12 @@ export default class InputComponent extends Component {
 							<i className="tags icon"></i>
 							<input id="tag-input" type="text" name="tags" ref="tags" placeholder="enter tags"/>
 							<a className="ui tag label" onClick={this.addTag.bind(this)} value="add tag">add tag</a>
+						</div>
+						<div>
+							<input type="number" ref="visitorCount" placeholder="number of visitors"/>
+						</div>
+						<div>
+							<input type="number" ref="nightsCount" placeholder="how many nights you can spent?"/>
 						</div>
 					</form>
 					<div>
@@ -54,19 +60,18 @@ export default class InputComponent extends Component {
 	}
 
 	sendRequest() {
-		console.log(this.state.tags);
 		axios({
 			method: 'post',
 			url: 'http://127.0.0.1:8000/api/v0/',
 			data: {
 				money: this.refs.money.value,
-				tags: this.state.tags
+				tags: this.state.tags,
+				visitorCount: this.refs.visitorCount.value,
+				nightsCount: this.refs.nightsCount.value
 			}
 		})
 		.then(res => {
 			console.log(res);
-		}).then(response => {
-			console.log(JSON.stringify(response));
 		})
 	}
 }
