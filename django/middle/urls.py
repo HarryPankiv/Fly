@@ -17,7 +17,9 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from inventory.views import ReactAppView
 
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$' , ReactAppView.as_view())
+    url(r'^api/v0/', )
 ]
