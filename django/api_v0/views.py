@@ -22,7 +22,7 @@ def populate():
 
 class Test(View):
     def get(self, request):
-        populate()
+        #populate()
         return JsonResponse({'request-type': 'GET'})
 
     def post(self, request):
