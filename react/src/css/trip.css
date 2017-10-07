@@ -1,0 +1,8 @@
+.trip-header {
+	display: inline-block;
+}
+
+.trip-price{
+	float: right;
+	font-size: 20px;
+}
