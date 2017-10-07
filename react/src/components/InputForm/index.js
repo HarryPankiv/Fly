@@ -13,12 +13,13 @@ export default class InputComponent extends Component {
 		return (
 			<div>
 				<form className="">
-					<div className="ui input moneyInput">
-						<input className="" type="text" name="money" ref="money" />
+					<div className="ui right labeled input moneyInput">
+						<label for="amount" className="ui label">$</label>
+						<input className="" type="text" name="money" ref="money" placeholder="how rich are you?" />
 					</div>
 					<div className="tagInput ui right labeled left icon input">
 						<i className="tags icon"></i>
-						<input className="" type="text" name="tags" ref="tags" />
+						<input className="" type="text" name="tags" ref="tags" placeholder="enter tags"/>
 						<a className="ui tag label" onClick={this.addTag.bind(this)} value="add tag">add tag</a>
 					</div>
 				</form>
