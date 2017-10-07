@@ -3,15 +3,7 @@ from django.http import HttpResponse, JsonResponse
 from django.conf import settings
 import json
 import urllib2
-
-
-
-
-
 import os
-
-
-
 
 class Test(View):
     def get(self, request):
