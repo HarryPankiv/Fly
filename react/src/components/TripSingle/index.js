@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './style.css';
 import Directions from '../Directions/index';
 
@@ -7,8 +6,8 @@ export default class TripSingle extends Component {
 	render() {
 		let place = 'Vienna';
 		let totalPrice = '$10000';
-		let tickets;
-		let hotels;
+		// let tickets;
+		// let hotels;
 
 		return (
 			<div className="ui segment">

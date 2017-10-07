@@ -42,7 +42,10 @@ export default class InputComponent extends Component {
 	}
 
 	addTag() {
-		this.setState({tags: this.state.tags.concat([this.refs.tags.value])})
+		if (this.refs.tags.value !== '' && this.state.tags.indexOf(this.refs.tags.value) === -1)  {
+			this.setState({tags: this.state.tags.concat([this.refs.tags.value])})
+			
+		}
 	}
 
 	sendRequest() {

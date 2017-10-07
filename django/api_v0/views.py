@@ -28,4 +28,24 @@ class Test(View):
     def post(self, request):
         print request.body
         json_string = json.loads(request.body)
-        return JsonResponse(json_string)
+        return JsonResponse([
+            {
+                city: 'Lviv',
+                avgPriceOfFlight: 0,
+                avgPriceOfHotel: 50,
+                tag: ['photography', 'sightseeing', 'sky-diving']
+            },
+            {
+                city: 'NY',
+                avgPriceOfFlight: 1000,
+                avgPriceOfHotel: 150,
+                tag: ['photography', 'driving', 'sky-diving']
+            },
+            {
+                city: 'London',
+                avgPriceOfFlight: 500,
+                avgPriceOfHotel: 100,
+                tag: ['extreme sports', 'driving', 'sky-diving']
+            }
+
+            ])
