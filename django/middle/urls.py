@@ -16,10 +16,11 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from inventory.views import ReactAppView
+#from api_v0.views import Test
 
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$' , ReactAppView.as_view())
-    url(r'^api/v0/', )
+    url(r'^$' , ReactAppView.as_view()),
+    url(r'^api/v0/', include('api_v0.urls'))
 ]
