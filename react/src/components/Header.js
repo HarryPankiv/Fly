@@ -6,9 +6,9 @@ export default class Header extends Component {
 	render() {
 		return (
 			<div>
-				<div className="ui clearing segment header-segment">
+				<div className="ui inverted clearing segment header-segment inverted">
 				  <div className="choosemytrip-button-wrapper">
-				  		<button className="ui center green basic button choosemytrip-button black">Choose my trip</button>
+				  		<button className="ui inverted button choosemytrip-button">Choose my trip</button>
 				  </div>
 				  
 				</div>
