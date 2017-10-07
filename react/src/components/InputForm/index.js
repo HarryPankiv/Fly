@@ -64,14 +64,14 @@ export default class InputForm extends Component {
 			method: 'post',
 			url: 'http://127.0.0.1:8000/api/v0/',
 			data: {
-				money: this.refs.money.value,
+				money: this.refs.money.value / this.refs.visitorCount.value / this.refs.nightsCount.value,
 				tags: this.state.tags,
 				visitorCount: this.refs.visitorCount.value,
 				nightsCount: this.refs.nightsCount.value
 			}
 		})
 		.then(res => {
-			console.log(res);
+			this.props.tripsLoaded(res);
 		})
 	}
 }

@@ -20,8 +20,8 @@ class Test(View):
                     'tags': ['photography', 'sightseeing', 'sky-diving'],
 
                     'activityPrice': 0,
-                    'hotelPricePP': 50,
-                    'flightPricePP': 100
+                    'hotelPrice': 50,
+                    'flightPrice': 100
                 },
                 {
                     'activity': 'diving',
@@ -29,8 +29,8 @@ class Test(View):
                     'tags': ['photography', 'sightseeing', 'sky-diving'],
 
                     'activityPrice': 100,
-                    'hotelPricePP': 50,
-                    'flightPricePP': 25
+                    'hotelPrice': 50,
+                    'flightPrice': 25
                 },
                 {
                     'activity': 'Museums',
@@ -38,7 +38,7 @@ class Test(View):
                     'tags': ['photography', 'sightseeing', 'sky-diving'],
 
                     'activityPrice': 0,
-                    'hotelPricePP': 33,
-                    'flightPricePP': 100
+                    'hotelPrice': 33,
+                    'flightPrice': 100
                 }
             ]})
