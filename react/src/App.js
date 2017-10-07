@@ -9,6 +9,7 @@ export default class App extends Component {
             <div>
                 <Header />
                 <Trips/>
+                
             </div>
         );
     }

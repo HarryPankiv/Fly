@@ -35,7 +35,7 @@ export default class Directions extends Component {
 						  width="100%"
 						  height="450"
 						  frameBorder="0" style={{border:0}}
-						  src={'https://www.google.com/maps/embed/v1/place?key=AIzaSyBhtTiQKHiFbd-1xHIkHYc1lNaQo6-gtXY&q=' + cityName} allowFullScreen>
+						  src={'https://www.google.com/maps/embed/v1/directions?key=AIzaSyD9wuwjLuz-Fd3j7IdDjBhJTODg5v79G9Q&origin=Lviv&destination=' + cityName + '&avoid=tolls|highways'} allowFullScreen>
 							</iframe>
 					</div>
 				</div>
