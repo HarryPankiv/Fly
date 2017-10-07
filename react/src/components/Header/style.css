@@ -7,6 +7,10 @@
 }
 
 .choosemytrip-button-wrapper{
-  margin-top: 30vh;
-  text-align: center;
+  	margin-top: 30vh;
+  	text-align: center;
+}
+
+.choosemytrip-button {
+	font-size: 40px !important;
 }
