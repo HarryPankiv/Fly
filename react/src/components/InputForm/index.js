@@ -72,8 +72,6 @@ export default class InputForm extends Component {
 		})
 		.then(res => {
 			console.log(res);
-		}).then(response => {
-			console.log(JSON.stringify(response));
 		})
 	}
 }
