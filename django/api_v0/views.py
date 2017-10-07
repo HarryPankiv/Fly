@@ -15,23 +15,30 @@ class Test(View):
         return JsonResponse({
             'data': [
                 {
+                    'activity': 'sightseeing',
                     'city': 'Lviv',
-                    'tag': ['photography', 'sightseeing', 'sky-diving'],
-                    'avgPriceOfFlight': 0,
-                    'avgPriceOfHotel': 50,
-                    'totalPrice': 100,
-                },
-                {
-                    'city': 'NY',
-                    'tag': ['photography', 'driving', 'sky-diving'],
-                    'avgPriceOfFlight': 1000,
-                    'avgPriceOfHotel': 150,
-                },
-                {
-                    'city': 'London',
-                    'avgPriceOfFlight': 500,
-                    'avgPriceOfHotel': 100,
-                    'tag': ['extreme sports', 'driving', 'sky-diving'],
-                }
+                    'tags': ['photography', 'sightseeing', 'sky-diving'],
 
+                    'activityPrice': 0,
+                    'hotelPricePP': 50,
+                    'flightPricePP': 100
+                },
+                {
+                    'activity': 'diving',
+                    'city': 'NY',
+                    'tags': ['photography', 'sightseeing', 'sky-diving'],
+
+                    'activityPrice': 100,
+                    'hotelPricePP': 50,
+                    'flightPricePP': 25
+                },
+                {
+                    'activity': 'Museums',
+                    'city': 'Vienna',
+                    'tags': ['photography', 'sightseeing', 'sky-diving'],
+
+                    'activityPrice': 0,
+                    'hotelPricePP': 33,
+                    'flightPricePP': 100
+                }
             ]})
