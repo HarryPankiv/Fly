@@ -1,27 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
+// import {
+//   BrowserRouter as Router,
+//   Route,
+//   Link
+// } from 'react-router-dom'
 
-import Layout from './pages/Layout';
-import Home from './pages/Home';
+// import Layout from './pages/Layout';
+// import Home from './pages/Home';
+// import Redirect from './pages/Redirect';
 // import  from './pages/';
-// import ErrorPage from './pages/ErrorPage';
 
 ReactDOM.render(
-	// <App />
-	<Router>
+	<App />
+	/*<Router>
 		<div>
 	      	<Route path="/" component={Layout}/>
 	  		<Route path="/home" component={Home}/>
+	  		<Route path="*" component={Redirect}/>
   		</div>
-  </Router>
+  	</Router>*/
 	, document.getElementById('root'));
 registerServiceWorker();
 	
