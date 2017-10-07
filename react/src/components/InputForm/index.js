@@ -27,11 +27,12 @@ export default class InputComponent extends Component {
 							<a className="ui tag label" onClick={this.addTag.bind(this)} value="add tag">add tag</a>
 						</div>
 					</form>
-					<ul>
+					<div>
 						{this.state.tags.map( (tag, i) => {
 							return <Tag key={i} name={tag} deleteTag={this.deleteTag.bind(this, i)} />
 						})}
-					</ul>
+					</div>
+					<br/>
 					<input className="ui button" type="submit" onClick={this.sendRequest.bind(this)} value="Submit" />
 					<br/><br/><br/>
 				</div>
