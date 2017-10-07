@@ -1,9 +1,18 @@
 .moneyInput {
-	margin: 0.5em 0.5em;
+	margin-bottom: 0.5em;
 	min-width: 50%;
+	width: 100%;
 }
 
 .tagInput {
-	margin: 0.5em 0.5em;
-	min-width: 50%;
+	margin: auto;
+	min-width: 200px;
+	width: 100%;
+}
+
+.input-component {
+	text-align: center;
+	margin: auto;
+	min-width: 300px;
+    width: 50%;
 }
