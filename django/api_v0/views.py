@@ -24,6 +24,6 @@ class Test(View):
         for tag in tags:
             for item in Item.objects.all():
                 if item.activity_name.lower() == tag or item.city.lower() == tag:
-                    if (item.activity_price + item.flight_price + item.hotel_price) <= (float(budget) * 0.75):
+                    if (item.activity_price + item.flight_price + item.hotel_price) <= (float(hotel_budget) * 0.75):
                         lst.append(item)
         return JsonResponse({'data':serialize('json', lst)})
