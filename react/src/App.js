@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header/index';
 import Trips from './components/Trips/index';
-import InputComponent from './components/InputForm/index';
+import InputForm from './components/InputForm/index';
 import Footer from './components/Footer/index';
 import './app.css';
 
@@ -16,7 +16,7 @@ export default class App extends Component {
         return (
             <div className="background">
                 <Header />
-                <InputComponent tripsLoaded={this.onTripsLoaded.bind(this)}/>
+                <InputForm tripsLoaded={this.onTripsLoaded.bind(this)}/>
                 <Trips trips={this.state.trips} />
                 <Footer />
             </div>
@@ -24,10 +24,15 @@ export default class App extends Component {
     }
 
     onTripsLoaded(data) {
-		let trips = data.data.data.slice(0);
+        console.log(data);
+		let trips = data.map( (item) => {
+            return item.fields;
+        });
+        console.log(trips);
 		this.setState({
 			trips: trips
 		});
-		console.log(trips[0]);
+		console.log(trips);
+        console.log(this.state);
     }
 }

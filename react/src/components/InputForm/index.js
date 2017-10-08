@@ -7,7 +7,8 @@ export default class InputForm extends Component {
 	constructor() {
 		super();
 		this.state = {
-			tags: []
+			tags: [],
+			data: [{}]
 		}
 	}
 	render() {
@@ -82,8 +83,11 @@ export default class InputForm extends Component {
 				nightsCount: this.refs.nightsCount.value
 			}
 		})
-		.then(res => {
-			this.props.tripsLoaded(res);
+		.then( (res) => {
+			let data = JSON.parse(res["data"]["data"])
+			console.log(data);
+			this.props.tripsLoaded(data);
+			this.setState({data: data});
 		})
 	}
 
