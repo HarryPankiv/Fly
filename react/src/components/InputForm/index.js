@@ -19,7 +19,7 @@ export default class InputForm extends Component {
 					<form>
 						<div className="ui right labeled input moneyInput">
 							<label htmlFor="amount" className="ui label">$</label>
-							<input onChange={this.fieldsChanged.bind(this)} className="" type="text" name="money" ref="money" placeholder="how rich are you?" />
+							<input onChange={this.fieldsChanged.bind(this)} className="" type="number" name="money" ref="money" placeholder="how rich are you?" />
 						</div>
 						<div className="tagInput ui right labeled left icon input">
 							<i className="tags icon"></i>
@@ -55,19 +55,23 @@ export default class InputForm extends Component {
 	deleteTag(i) {
 		this.state.tags.splice(i, 1);
 		this.setState({tags: this.state.tags});
+		this.sendRequest();
 	}
 
 	addTag() {
 		if (this.refs.tags.value !== '' && this.state.tags.indexOf(this.refs.tags.value) === -1)  {
-			this.setState({tags: this.state.tags.concat([this.refs.tags.value])})
+			let t = this.state.tags.concat([this.refs.tags.value]);
+			this.state.tags = t;
+			this.setState({tags: t});
 			document.getElementById('tag-input').value = '';
+			this.sendRequest();
 			if(this.refs.money.value&& this.refs.visitorCount.value && this.refs.nightsCount.value) {
-				this.sendRequest();
+				//this.sendRequest();
 			}
 		}
 	}
 
-	sendRequest() {
+	sendRequest(tags) {
 		axios({
 			method: 'post',
 			url: 'http://127.0.0.1:8000/api/v0/',

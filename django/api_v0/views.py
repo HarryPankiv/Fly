@@ -18,57 +18,34 @@ class Test(View):
         money = json_string['money']
         tags = json_string['tags']
 
-        if money is not None and tags:
-            return self.getFakeJson(10, money, tags)
+        return self.getFakeJson(10, money, tags)
 
-        return JsonResponse({
-            'data': [
-                {
-                    'activity': 'sightseeing',
-                    'city': 'Lviv',
-                    'tags': ['photography', 'sightseeing', 'sky-diving'],
-
-                    'activityPrice': 0,
-                    'hotelPrice': 50,
-                    'flightPrice': 100
-                },
-                {
-                    'activity': 'diving',
-                    'city': 'NY',
-                    'tags': ['photography', 'sightseeing', 'sky-diving'],
-
-                    'activityPrice': 100,
-                    'hotelPrice': 50,
-                    'flightPrice': 25
-                },
-                {
-                    'activity': 'Museums',
-                    'city': 'Vienna',
-                    'tags': ['photography', 'sightseeing', 'sky-diving'],
-
-                    'activityPrice': 0,
-                    'hotelPrice': 33,
-                    'flightPrice': 100
-                }
-            ]})
 
     def getFakeJson(self, num, price, tags):
-        if price <= 10:
+        if price <= 10 or price is None or not tags:
             return JsonResponse({
             'data': []
         })
         activities = ['climbing', 'swimming', 'museums', 'skydiving', 'diving', 'sightseeing', 'photography', 'eat out', 'paintball', 'lasertag']
-        cities = ['London', 'Paris', 'Lviv', 'Kiev', 'Warsaw', 'Krakow', 'Berlin', 'Munich', 'Vienna', 'Venice']
+        cities = ['london', 'paris', 'lviv', 'kiev', 'warsaw', 'krakow', 'berlin', 'munich', 'vienna', 'venice']
+
+        a = [t for t in tags if t.lower() in activities]
+        if not a:
+            a = activities
+        c = [t for t in tags if t.lower() in cities]
+        if not c:
+            c = cities
+        print(c)
         trips = []
 
         random.seed(price)
 
-        for i in range(random.randint(3,10)):
-            cityIndx = random.randint(0,len(cities)-1)
-            activityIndx = random.randint(0,len(activities)-1)
+        for i in range(random.randint(3,3+len(a)-1)):
+            cityIndx = random.randint(0,len(c)-1)
+            activityIndx = random.randint(0,len(a)-1)
 
-            city = cities[cityIndx]
-            activity = activities[activityIndx]
+            city = c[cityIndx]
+            activity = a[activityIndx]
 
             total = price
             hotelPrice = random.randint(0, total)
