@@ -24,15 +24,11 @@ export default class App extends Component {
     }
 
     onTripsLoaded(data) {
-        console.log(data);
 		let trips = data.map( (item) => {
             return item.fields;
         });
-        console.log(trips);
 		this.setState({
 			trips: trips
 		});
-		console.log(trips);
-        console.log(this.state);
     }
 }

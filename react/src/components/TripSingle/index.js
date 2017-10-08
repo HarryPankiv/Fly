@@ -4,7 +4,6 @@ import Directions from '../Directions/index';
 
 export default class TripSingle extends Component {
 	render() {
-		console.log(this.props);
 		let activity_name = this.props.activity_name.charAt(0).toUpperCase() + this.props.activity_name.slice(1);
 		let city = this.props.city.charAt(0).toUpperCase() + this.props.city.slice(1);
 		let activity_price = parseInt(this.props.activity_price);
@@ -16,10 +15,9 @@ export default class TripSingle extends Component {
 
 		let totalPrice = hotel_price + activity_price + flight_price;
 
-		console.log(this);
 		return (
 			<div className="ui segment">
-				<h2 className="ui header trip-header">{city} -  {activity_name}</h2>
+				<h2 className="ui header trip-header">{city} - {activity_name}</h2>
 				<p className="trip-price"><b>${totalPrice}</b></p>
 
 				<p className="ui">{activity_name} price: <b>${activity_price}</b> </p>
@@ -30,7 +28,6 @@ export default class TripSingle extends Component {
 				
 				<Directions destination={city}/>
 			</div>
-		)
+		) 
 	}
-
 }

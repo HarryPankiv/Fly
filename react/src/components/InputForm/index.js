@@ -45,6 +45,7 @@ export default class InputForm extends Component {
 							return <Tag key={i} name={tag} deleteTag={this.deleteTag.bind(this, i)} />
 						})}
 					</div>
+					<div id="error-output" className="ui"></div>
 					<br/>
 					<br/><br/><br/>
 				</div>
@@ -85,9 +86,12 @@ export default class InputForm extends Component {
 		})
 		.then( (res) => {
 			let data = JSON.parse(res["data"]["data"])
-			console.log(data);
-			this.props.tripsLoaded(data);
-			this.setState({data: data});
+			if (data === []) {
+				document.getElementById('error-output').value = 'The search didn\'t find anything, try different tags or increase your wallet :)';
+			} else {
+				this.props.tripsLoaded(data);
+				this.setState({data: data});
+			}
 		})
 	}
 

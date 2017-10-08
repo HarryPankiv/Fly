@@ -24,7 +24,6 @@ export default class Directions extends Component {
 			)
 		} else {
 			let cityName = this.props.destination.split(' ').join('_'); 
-			console.log(cityName)
 			return (
 				<div>
 					<button className="ui olive basic button" onClick={this.onToggleMapClick.bind(this)}>Hide Map</button>
