@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/Header/index';
 import Trips from './components/Trips/index';
 import InputComponent from './components/InputForm/index';
+import './app.css';
 
 export default class App extends Component {
 	constructor() {
@@ -12,7 +13,7 @@ export default class App extends Component {
 	}
     render() {
         return (
-            <div>
+            <div className="background">
                 <Header />
                 <InputComponent tripsLoaded={this.onTripsLoaded.bind(this)}/>
                 <Trips trips={this.state.trips} />

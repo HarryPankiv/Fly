@@ -26,7 +26,6 @@ export default class InputForm extends Component {
 							<input onChange={this.fieldsChanged.bind(this)} id="tag-input" type="text" name="tags" ref="tags" placeholder="enter tags"/>
 							<a className="ui tag label" onClick={this.addTag.bind(this)} value="add tag">add tag</a>
 						</div>
-
 						<div className="peopleInput ui labeled input">
 						    <div className="ui label">
     							People
