@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/Header/index';
 import Trips from './components/Trips/index';
 import InputComponent from './components/InputForm/index';
+import Footer from './components/Footer/index';
 import './app.css';
 
 export default class App extends Component {
@@ -17,6 +18,7 @@ export default class App extends Component {
                 <Header />
                 <InputComponent tripsLoaded={this.onTripsLoaded.bind(this)}/>
                 <Trips trips={this.state.trips} />
+                <Footer />
             </div>
         );
     }
