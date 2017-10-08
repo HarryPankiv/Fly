@@ -78,7 +78,7 @@ export default class InputForm extends Component {
 			method: 'post',
 			url: 'http://127.0.0.1:8000/api/v0/',
 			data: {
-				money: parseInt(this.refs.money.value) / parseInt(this.refs.visitorCount.value) / parseInt(this.refs.nightsCount.value),
+				money: parseInt(this.refs.money.value),
 				tags: this.state.tags,
 				visitorCount: this.refs.visitorCount.value,
 				nightsCount: this.refs.nightsCount.value

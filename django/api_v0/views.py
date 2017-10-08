@@ -20,10 +20,13 @@ class Test(View):
         people = data['visitorCount']
         nights = data['nightsCount']
         lst = []
+        cities = []
         hotel_budget = (int(budget)/int(people))/int(nights)
         for tag in tags:
             for item in Item.objects.all():
                 if item.activity_name.lower() == tag.lower() or item.city.lower() == tag.lower():
-                    if (item.activity_price + item.flight_price + item.hotel_price) <= (float(hotel_budget) * 0.75):
-                        lst.append(item)
+                    if (item.activity_price + item.flight_price + item.hotel_price) <= (float(hotel_budget)):
+                        if item.city not in cities:
+                            lst.append(item)
+                            cities.append(item.city)
         return JsonResponse({'data':serialize('json', lst)})
