@@ -1,6 +1,9 @@
 from django.views.generic import View
 from django.http import HttpResponse, JsonResponse
+from django.core.serializers import serialize
 from django.conf import settings
+from .models import Item
+from random import randint
 import json
 import urllib2
 import os
@@ -11,27 +14,16 @@ class Test(View):
 
     def post(self, request):
         print request.body
-        json_string = json.loads(request.body)
-        return JsonResponse({
-            'data': [
-                {
-                    'city': 'Lviv',
-                    'tag': ['photography', 'sightseeing', 'sky-diving'],
-                    'avgPriceOfFlight': 0,
-                    'avgPriceOfHotel': 50,
-                    'totalPrice': 100,
-                },
-                {
-                    'city': 'NY',
-                    'tag': ['photography', 'driving', 'sky-diving'],
-                    'avgPriceOfFlight': 1000,
-                    'avgPriceOfHotel': 150,
-                },
-                {
-                    'city': 'London',
-                    'avgPriceOfFlight': 500,
-                    'avgPriceOfHotel': 100,
-                    'tag': ['extreme sports', 'driving', 'sky-diving'],
-                }
-
-            ]})
+        data = json.loads(request.body)
+        tags = data['tags']
+        budget = data['money']
+        people = data['visitorCount']
+        nights = data['nightsCount']
+        lst = []
+        hotel_budget = (int(budget)/int(people))/int(nights)
+        for tag in tags:
+            for item in Item.objects.all():
+                if item.activity_name.lower() == tag or item.city.lower() == tag:
+                    if (item.activity_price + item.flight_price + item.hotel_price) <= (float(budget) * 0.75):
+                        lst.append(item)
+        return JsonResponse({'data':serialize('json', lst)})
