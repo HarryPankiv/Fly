@@ -5,7 +5,7 @@
 }
 
 .tagInput {
-	margin: auto;
+	margin-bottom: 0.5em;
 	min-width: 200px;
 	width: 100%;
 }
@@ -15,4 +15,18 @@
 	margin: auto;
 	min-width: 300px;
     width: 50%;
+}
+
+.inputsWrapper {
+	min-width: 50%;
+}
+
+.visitorInput {
+	width: 50%;
+	margin-bottom: 0.5em;
+}
+
+.nightsInput {
+	width: 50%;
+	margin-bottom: 0.5em;
 }
