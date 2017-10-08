@@ -4,10 +4,13 @@ import Trip from '../TripSingle/index';
 
 export default class Trips extends Component {
 	render() {
-		let trips = [<Trip key='1'/>, <Trip key='2'/>, <Trip key='3'/>];
+		console.log(this.props.trips)
+		console.log('suk')
 		return (
 			<div className="trip-wrapper">
-				{trips}
+				{this.props.trips.map((trip, i) => {
+					return <Trip key={i} activity={trip.activity} city={trip.city} hotelPrice={trip.hotelPrice} flightPrice={trip.flightPrice} activityPrice={trip.activityPrice}/>
+				})}
 			</div>
 		)
 	}

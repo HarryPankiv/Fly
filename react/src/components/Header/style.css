@@ -1,7 +1,6 @@
 .header-segment{
-	background-image: url('../../assets/road-trip.jpg') !important;
-	
-	height: 70vh !important;
+	background-image: url('../../assets/header-photo.jpeg') !important;
+	height: 100vh !important;
 	background-size: cover !important;
 	background-position: center !important;
 }

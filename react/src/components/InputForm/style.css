@@ -6,6 +6,21 @@
 
 .tagInput {
 	margin: auto;
+	margin-bottom: 0.5em;
+	min-width: 200px;
+	width: 100%;
+}
+
+.peopleInput {
+	margin: auto;
+	margin-bottom: 0.5em;
+	min-width: 200px;
+	width: 100%;
+}
+
+.nightsInput {
+	margin: auto;
+	margin-bottom: 0.5em;
 	min-width: 200px;
 	width: 100%;
 }
@@ -15,4 +30,8 @@
 	margin: auto;
 	min-width: 300px;
     width: 50%;
+}
+
+.inputsWrapper {
+	min-width: 50%;
 }

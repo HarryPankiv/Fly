@@ -19,18 +19,24 @@ export default class InputForm extends Component {
 					<form>
 						<div className="ui right labeled input moneyInput">
 							<label htmlFor="amount" className="ui label">$</label>
-							<input className="" type="text" name="money" ref="money" placeholder="how rich are you?" />
+							<input onChange={this.fieldsChanged.bind(this)} className="" type="number" name="money" ref="money" placeholder="how rich are you?" />
 						</div>
 						<div className="tagInput ui right labeled left icon input">
 							<i className="tags icon"></i>
-							<input id="tag-input" type="text" name="tags" ref="tags" placeholder="enter tags"/>
+							<input onChange={this.fieldsChanged.bind(this)} id="tag-input" type="text" name="tags" ref="tags" placeholder="enter tags"/>
 							<a className="ui tag label" onClick={this.addTag.bind(this)} value="add tag">add tag</a>
 						</div>
-						<div>
-							<input type="number" ref="visitorCount" placeholder="number of visitors"/>
+						<div className="peopleInput ui labeled input">
+						    <div className="ui label">
+    							People
+  						    </div>
+							<input onChange={this.fieldsChanged.bind(this)} defaultValue="1" type="number" ref="visitorCount" placeholder="number of visitors"/>
 						</div>
-						<div>
-							<input type="number" ref="nightsCount" placeholder="how many nights you can spent?"/>
+						<div className="nightsInput ui labeled input">
+							<div className="ui label">
+    							Nights
+  						    </div>
+							<input onChange={this.fieldsChanged.bind(this)} defaultValue="1" type="number" ref="nightsCount" placeholder="how many nights you can spent?"/>
 						</div>
 					</form>
 					<div>
@@ -39,7 +45,6 @@ export default class InputForm extends Component {
 						})}
 					</div>
 					<br/>
-					<input className="ui button" type="submit" onClick={this.sendRequest.bind(this)} value="Submit" />
 					<br/><br/><br/>
 				</div>
 
@@ -50,28 +55,40 @@ export default class InputForm extends Component {
 	deleteTag(i) {
 		this.state.tags.splice(i, 1);
 		this.setState({tags: this.state.tags});
+		this.sendRequest();
 	}
 
 	addTag() {
 		if (this.refs.tags.value !== '' && this.state.tags.indexOf(this.refs.tags.value) === -1)  {
-			this.setState({tags: this.state.tags.concat([this.refs.tags.value])})
+			let t = this.state.tags.concat([this.refs.tags.value]);
+			this.state.tags = t;
+			this.setState({tags: t});
 			document.getElementById('tag-input').value = '';
+			this.sendRequest();
+			if(this.refs.money.value&& this.refs.visitorCount.value && this.refs.nightsCount.value) {
+				//this.sendRequest();
+			}
 		}
 	}
 
-	sendRequest() {
+	sendRequest(tags) {
 		axios({
 			method: 'post',
 			url: 'http://127.0.0.1:8000/api/v0/',
 			data: {
-				money: this.refs.money.value,
+				money: parseInt(this.refs.money.value) / parseInt(this.refs.visitorCount.value) / parseInt(this.refs.nightsCount.value),
 				tags: this.state.tags,
 				visitorCount: this.refs.visitorCount.value,
 				nightsCount: this.refs.nightsCount.value
 			}
 		})
 		.then(res => {
-			console.log(res);
+			this.props.tripsLoaded(res);
 		})
+	}
+
+	fieldsChanged() {
+		if(this.refs.money.value&& this.refs.visitorCount.value && this.refs.nightsCount.value && this.state.tags.length)
+			this.sendRequest();
 	}
 }
