@@ -5,6 +5,21 @@
 }
 
 .tagInput {
+	margin: auto;
+	margin-bottom: 0.5em;
+	min-width: 200px;
+	width: 100%;
+}
+
+.peopleInput {
+	margin: auto;
+	margin-bottom: 0.5em;
+	min-width: 200px;
+	width: 100%;
+}
+
+.nightsInput {
+	margin: auto;
 	margin-bottom: 0.5em;
 	min-width: 200px;
 	width: 100%;
